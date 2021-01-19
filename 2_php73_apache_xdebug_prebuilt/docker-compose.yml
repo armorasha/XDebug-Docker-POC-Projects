@@ -1,0 +1,12 @@
+version: '2'
+services:
+  webserver:
+    image: phpstorm/php-73-apache-xdebug-27
+    ports:
+      - "80:80"
+    volumes:
+      - "./src:/var/www/html"
+    environment:
+      # XDEBUG_CONFIG: remote_host=host.docker.internal
+      # will not work in linux. need to use $hostname in terminal to find hostname. Mine is ubuntu.
+      XDEBUG_CONFIG: remote_host=ubuntu
